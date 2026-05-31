@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pomodori Sechi – authentiek Italiaans restaurant en pizzeria aan de Nesse 16 in Waddinxveen. Reserveer uw tafel.">
+  <title>Pomodori Sechi | Italiaans Restaurant Waddinxveen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #faf6f0;
+      --cream-dark: #f0e8dc;
+      --terracotta: #c45c3e;
+      --terracotta-light: #d97a5f;
+      --deep-red: #7a2e2a;
+      --deep-red-dark: #5c1f1c;
+      --olive: #5c6b4a;
+      --olive-light: #7a8f62;
+      --charcoal: #2c2420;
+      --charcoal-soft: #4a4038;
+      --gold: #c9a962;
+      --white: #ffffff;
+      --shadow: 0 4px 24px rgba(44, 36, 32, 0.12);
+      --shadow-lg: 0 12px 48px rgba(44, 36, 32, 0.18);
+      --radius: 12px;
+      --radius-lg: 20px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-display: "Playfair Display", Georgia, serif;
+      --font-body: "Inter", system-ui, -apple-system, sans-serif;
+      --header-h: 72px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--header-h);
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--charcoal);
+      background: var(--cream);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: var(--deep-red);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+      transition: color var(--transition);
+    }
+
+    a:hover {
+      color: var(--terracotta);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--terracotta);
+      outline-offset: 2px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      z-index: 10000;
+      padding: 0.75rem 1.25rem;
+      background: var(--deep-red);
+      color: var(--white);
+      font-weight: 600;
+      border-radius: var(--radius);
+      transition: top var(--transition);
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: var(--header-h);
+      display: flex;
+      align-items: center;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+
+    .header.scrolled {
+      background: rgba(250, 246, 240, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    .header__inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    /* Light frame so black logo reads on dark hero/footer */
+    .logo-frame {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cream);
+      padding: 0.4rem 0.7rem;
+      border-radius: 10px;
+      line-height: 0;
+      transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo:hover .logo-frame,
+    .logo-frame:hover {
+      transform: scale(1.02);
+    }
+
+    .logo img,
+    .logo-frame img {
+      display: block;
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav {
+      display: none;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.92);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      transition: color var(--transition);
+    }
+
+    .header:not(.scrolled) .nav a:hover {
+      color: var(--gold);
+    }
+
+    .header.scrolled .nav a {
+      color: var(--charcoal-soft);
+    }
+
+    .header.scrolled .nav a:hover {
+      color: var(--deep-red);
+    }
+
+    .header__actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn--primary {
+      background: var(--deep-red);
+      color: var(--white);
+      box-shadow: 0 4px 16px rgba(122, 46, 42, 0.35);
+    }
+
+    .btn--primary:hover {
+      background: var(--deep-red-dark);
+      color: var(--white);
+      box-shadow: 0 6px 24px rgba(122, 46, 42, 0.45);
+    }
+
+    .btn--secondary {
+      background: transparent;
+      color: var(--deep-red);
+      border: 2px solid var(--deep-red);
+    }
+
+    .btn--secondary:hover {
+      background: var(--deep-red);
+      color: var(--white);
+    }
+
+    .btn--ghost {
+      background: rgba(255, 255, 255, 0.15);
+      color: var(--white);
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(4px);
+    }
+
+    .btn--ghost:hover {
+      background: var(--white);
+      color: var(--deep-red);
+      border-color: var(--white);
+    }
+
+    .btn--large {
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+    }
+
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      padding: 10px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      border-radius: var(--radius);
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform var(--transition), opacity var(--transition), background var(--transition);
+    }
+
+    .header.scrolled .menu-toggle span {
+      background: var(--deep-red);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-nav {
+      position: fixed;
+      inset: var(--header-h) 0 0 0;
+      background: var(--cream);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      transform: translateX(100%);
+      transition: transform var(--transition);
+      z-index: 999;
+      overflow-y: auto;
+    }
+
+    .mobile-nav.open {
+      transform: translateX(0);
+    }
+
+    .mobile-nav a {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--charcoal);
+      text-decoration: none;
+    }
+
+    .mobile-nav .btn {
+      align-self: flex-start;
+      margin-top: 1rem;
+    }
+
+    .mobile-nav__logo {
+      align-self: flex-start;
+      margin-bottom: 0.5rem;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .mobile-nav__logo img {
+      height: 64px;
+      width: auto;
+      display: block;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(44, 36, 32, 0.75) 0%,
+        rgba(122, 46, 42, 0.55) 50%,
+        rgba(92, 107, 74, 0.4) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: calc(var(--header-h) + 2rem) 1.5rem 4rem;
+      max-width: 800px;
+    }
+
+    .hero__logo-wrap {
+      margin: 0 auto 1.75rem;
+      padding: 0.85rem 1.35rem;
+    }
+
+    .hero__logo-wrap img {
+      width: min(240px, 68vw);
+      height: auto;
+    }
+
+    .hero__eyebrow {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero__subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+
+    .hero__cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .hero__scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: rgba(255, 255, 255, 0.7);
+      animation: bounce 2s infinite;
+    }
+
+    .hero__scroll svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* Sections */
+    .section {
+      padding: 5rem 1.5rem;
+    }
+
+    .section--alt {
+      background: var(--cream-dark);
+    }
+
+    .section--dark {
+      background: var(--charcoal);
+      color: var(--cream);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section__label {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.75rem;
+    }
+
+    .section--dark .section__label {
+      color: var(--gold);
+    }
+
+    .section__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--deep-red);
+      margin-bottom: 1.5rem;
+    }
+
+    .section--dark .section__title {
+      color: var(--cream);
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about__text p {
+      margin-bottom: 1.25rem;
+      color: var(--charcoal-soft);
+    }
+
+    .about__text p:last-child {
+      margin-bottom: 0;
+      font-weight: 500;
+      color: var(--deep-red);
+    }
+
+    .about__gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .about__gallery img {
+      border-radius: var(--radius-lg);
+      object-fit: cover;
+      width: 100%;
+      aspect-ratio: 4/5;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition);
+    }
+
+    .about__gallery img:hover {
+      transform: scale(1.02);
+    }
+
+    .about__gallery .img-main {
+      grid-column: 1 / -1;
+      aspect-ratio: 16/10;
+    }
+
+    /* Info */
+    .info-grid {
+      display: grid;
+      gap: 3rem;
+    }
+
+    .info-cards {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .info-card {
+      background: var(--white);
+      padding: 1.75rem;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--terracotta);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .info-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--deep-red);
+      margin-bottom: 0.75rem;
+    }
+
+    .info-card p,
+    .info-card address {
+      font-style: normal;
+      color: var(--charcoal-soft);
+      margin-bottom: 0.5rem;
+    }
+
+    .info-card a {
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .info-card .hours {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+
+    .map-wrapper {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      aspect-ratio: 16/10;
+      min-height: 280px;
+    }
+
+    .map-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Story */
+    .story {
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    .story > :not(.story-slider) {
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .story__divider {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--terracotta), var(--olive));
+      margin: 0 auto 2rem;
+      border-radius: 2px;
+    }
+
+    .story p {
+      font-size: 1.125rem;
+      color: var(--charcoal-soft);
+      line-height: 1.85;
+    }
+
+    .story-slider {
+      --slides-visible: 1;
+      --slide-gap: 1rem;
+      --slider-controls-offset: 2.5rem;
+      position: relative;
+      margin-top: 3rem;
+      width: 100%;
+      max-width: none;
+      padding-left: var(--slider-controls-offset);
+      padding-right: var(--slider-controls-offset);
+    }
+
+    .story-slider__viewport {
+      overflow: hidden;
+    }
+
+    .story-slider__track {
+      display: flex;
+      gap: var(--slide-gap);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .story-slider__slide {
+      flex: 0 0 calc((100% - (var(--slides-visible) - 1) * var(--slide-gap)) / var(--slides-visible));
+      margin: 0;
+    }
+
+    .story-slider__slide img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .story-slider__btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--deep-red);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+    }
+
+    .story-slider__btn:hover:not(:disabled) {
+      background: var(--white);
+      color: var(--terracotta);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .story-slider__btn:disabled {
+      cursor: default;
+    }
+
+    .story-slider__btn--prev {
+      left: 0;
+    }
+
+    .story-slider__btn--next {
+      right: 0;
+    }
+
+    .story-slider__btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .story-slider__dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .story-slider__dot {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background: var(--cream-dark);
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .story-slider__dot:hover {
+      background: var(--terracotta-light);
+    }
+
+    .story-slider__dot.is-active {
+      background: var(--terracotta);
+      transform: scale(1.15);
+    }
+
+    /* Testimonial */
+    .testimonial-slider {
+      --slider-controls-offset: 2.5rem;
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding-left: var(--slider-controls-offset);
+      padding-right: var(--slider-controls-offset);
+    }
+
+    .testimonial-slider__viewport {
+      overflow: hidden;
+    }
+
+    .testimonial-slider__track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .testimonial {
+      position: relative;
+      flex: 0 0 100%;
+      text-align: center;
+      padding: 3rem 2rem;
+      margin: 0;
+    }
+
+    .testimonial__quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--cream);
+      margin-bottom: 2rem;
+    }
+
+    .testimonial__quote::before {
+      content: "\201C";
+      display: block;
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .testimonial__author {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .testimonial-slider__btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(201, 169, 98, 0.35);
+      border-radius: 50%;
+      background: rgba(44, 36, 32, 0.85);
+      color: var(--gold);
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+    }
+
+    .testimonial-slider__btn:hover {
+      background: var(--charcoal-soft);
+      color: var(--cream);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .testimonial-slider__btn--prev {
+      left: 0;
+    }
+
+    .testimonial-slider__btn--next {
+      right: 0;
+    }
+
+    .testimonial-slider__btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .testimonial-slider__dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: -1rem;
+      padding-bottom: 1rem;
+    }
+
+    .testimonial-slider__dot {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background: rgba(201, 169, 98, 0.35);
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .testimonial-slider__dot:hover {
+      background: rgba(201, 169, 98, 0.65);
+    }
+
+    .testimonial-slider__dot.is-active {
+      background: var(--gold);
+      transform: scale(1.15);
+    }
+
+    @media (max-width: 639px) {
+      .testimonial {
+        padding: 2.5rem 0.5rem;
+      }
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .contact-intro p {
+      color: var(--charcoal-soft);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-details a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    .form {
+      padding: 2rem;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .form__title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--deep-red);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      border: 2px solid var(--cream-dark);
+      border-radius: var(--radius);
+      background: var(--cream);
+      color: var(--charcoal);
+      transition: border-color var(--transition);
+    }
+
+    .form-group input:hover,
+    .form-group select:hover,
+    .form-group textarea:hover {
+      border-color: var(--terracotta-light);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form__submit {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    .form__note {
+      font-size: 0.8rem;
+      color: var(--charcoal-soft);
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(44, 36, 32, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity var(--transition), visibility var(--transition);
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal {
+      background: var(--cream);
+      border-radius: var(--radius-lg);
+      max-width: 520px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 2rem;
+      position: relative;
+      transform: translateY(20px) scale(0.98);
+      transition: transform var(--transition);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-overlay.open .modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal__close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cream-dark);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: var(--charcoal);
+      transition: background var(--transition);
+    }
+
+    .modal__close:hover {
+      background: var(--terracotta-light);
+      color: var(--white);
+    }
+
+    .form-success {
+      text-align: center;
+      padding: 2rem 0;
+      display: none;
+    }
+
+    .form-success.visible {
+      display: block;
+    }
+
+    .form-success h3 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      color: var(--olive);
+      margin-bottom: 0.75rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--deep-red-dark);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 3rem 1.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer__logo {
+      margin-bottom: 1.5rem;
+      padding: 0.65rem 1rem;
+    }
+
+    .footer__logo img {
+      height: 72px;
+    }
+
+    .footer__nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer__nav a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer__nav a:hover {
+      color: var(--gold);
+    }
+
+    .footer__copy {
+      font-size: 0.85rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Decorative */
+    .tomato-accent {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, var(--terracotta-light), var(--deep-red));
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 639px) {
+      .story-slider__btn,
+      .testimonial-slider__btn {
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+    @media (min-width: 640px) {
+      .story-slider {
+        --slides-visible: 2;
+      }
+      .form-row--2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .nav {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr 1.2fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr 1.1fr;
+      }
+
+      .story-slider,
+      .testimonial-slider {
+        --slider-controls-offset: 3.5rem;
+      }
+
+      .story-slider {
+        --slides-visible: 3;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .story-slider,
+      .testimonial-slider {
+        --slider-controls-offset: 4.5rem;
+      }
+
+      .story-slider {
+        --slides-visible: 4;
+      }
+      .section {
+        padding: 6rem 2rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Ga naar inhoud</a>
+
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="#" class="logo" aria-label="Pomodori Sechi – naar boven">
+        <span class="logo-frame">
+          <img src="logo.webp" alt="Pomodori Sechi – Ristorante Pizzeria" width="200" height="52">
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Hoofdnavigatie">
+        <a href="#over-ons">Over ons</a>
+        <a href="#info">Info</a>
+        <a href="#verhaal">Ons verhaal</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header__actions">
+        <button type="button" class="btn btn--primary" data-open-modal="reserveren" aria-haspopup="dialog">Reserveren</button>
+        <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu openen">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobiel menu" hidden>
+    <a href="#" class="mobile-nav__logo" aria-label="Pomodori Sechi – naar boven">
+      <img src="logo.webp" alt="" width="200" height="64" aria-hidden="true">
+    </a>
+    <a href="#over-ons">Over ons</a>
+    <a href="#info">Info</a>
+    <a href="#verhaal">Ons verhaal</a>
+    <a href="#contact">Contact</a>
+    <button type="button" class="btn btn--primary" data-open-modal="reserveren">Reserveren</button>
+  </nav>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__bg">
+        <img
+          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80"
+          alt="Sfeervol restaurantinterieur met warme verlichting"
+          width="1920"
+          height="1080"
+          fetchpriority="high"
+        >
+      </div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="hero__content">
+        <p class="hero__eyebrow">Waddinxveen</p>
+        <h1 id="hero-title" class="hero__title">Welkom bij<br> Pomodori Sechi</h1>
+        <p class="hero__subtitle">Authentieke Italiaanse keuken aan de Nesse, direct naast de hefbrug</p>
+        <div class="hero__cta">
+          <button type="button" class="btn btn--primary btn--large" data-open-modal="reserveren">Reserveren</button>
+          <a href="https://pomodori-sechi.nl/" class="btn btn--ghost btn--large" target="_blank" rel="noopener noreferrer">Bekijk Menukaart</a>
+        </div>
+      </div>
+      <a href="#over-ons" class="hero__scroll" aria-label="Scroll naar over ons">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </a>
+    </section>
+
+    <section class="section" id="over-ons" aria-labelledby="over-ons-title">
+      <div class="container about-grid">
+        <div class="about__text">
+          <span class="section__label">Over ons</span>
+          <h2 id="over-ons-title" class="section__title">Laat u betoveren door dit Italiaanse restaurant in het mooie Waddinxveen</h2>
+          <p>Marco Sechi, de eigenaar met Italiaanse roots. Sinds mei 2024 is Ristorante Pizzeria Pomodori Sechi geopend aan de Nesse 16, direct naast de hefbrug in Waddinxveen. Onze gerechten worden door de Italiaanse chef-kok volgens origineel recept bereid met verse producten waarbij de bekende Pomodori Sechi tomaten als een rode draad door de menukaart lopen. Ook op ons terras kunt u bij ons de gehele dag genieten van de lekkerste dranken en gerechten.</p>
+          <p>Ons team heet u van harte welkom.</p>
+        </div>
+        <div class="about__gallery">
+          <img
+            class="img-main"
+            src="WhatsApp-Image-2024-04-17-at-17.52.06.jpeg.webp"
+            alt="Pomodori Sechi – sfeerbeeld van het restaurant in Waddinxveen"
+            width="800"
+            height="500"
+            loading="lazy"
+          >
+          <img
+            src="Owner.jpeg"
+            alt="Marco Sechi, eigenaar van Pomodori Sechi"
+            width="400"
+            height="500"
+            loading="lazy"
+          >
+          <img
+            src="WhatsApp-Image-2024-04-24-at-18.54.36.jpeg.webp"
+            alt="Pomodori Sechi – gerecht en presentatie"
+            width="400"
+            height="500"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="info" aria-labelledby="info-title">
+      <div class="container info-grid">
+        <div>
+          <span class="section__label">Info</span>
+          <h2 id="info-title" class="section__title">Adres &amp; openingstijden</h2>
+          <div class="info-cards">
+            <article class="info-card">
+              <h3>Adres</h3>
+              <address>
+                <a href="https://maps.google.com/?q=Nesse+16,+2741+ES+Waddinxveen" target="_blank" rel="noopener noreferrer">
+                  Nesse 16<br>
+                  2741 ES Waddinxveen
+                </a><br>
+                <em>Direct naast de hefbrug</em>
+              </address>
+              <p>
+                <a href="tel:+31182202027">0182 - 20 20 27</a>
+              </p>
+            </article>
+            <article class="info-card">
+              <h3>Openingstijden</h3>
+              <p class="hours">Wij zijn geopend van woensdag tot zondag van 17.00 uur tot 22.00 uur</p>
+              <p>Graag van te voren reserveren.</p>
+              <button type="button" class="btn btn--primary" style="margin-top: 1rem;" data-open-modal="reserveren">Reserveer nu</button>
+            </article>
+          </div>
+        </div>
+        <div class="map-wrapper" aria-label="Kaart met locatie Pomodori Sechi">
+          <iframe
+            title="Google Maps – Pomodori Sechi, Nesse 16 Waddinxveen"
+            src="https://maps.google.com/maps?q=Nesse+16,+2741+ES+Waddinxveen,+Netherlands&amp;hl=nl&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="verhaal" aria-labelledby="verhaal-title">
+      <div class="container story">
+        <span class="section__label">Ons verhaal</span>
+        <h2 id="verhaal-title" class="section__title">POMODORI SECHI</h2>
+        <div class="story__divider" aria-hidden="true"></div>
+        <p>Onze visie is duidelijk: onze klanten uitzonderlijke gerechten aanbieden die verfijning en ontspanning verenigen. We streven ernaar een voorbeeldige service te bieden en tegelijkertijd onvergetelijke herinneringen te creëren voor al onze klanten.</p>
+        <div class="story-slider" id="story-slider" tabindex="0" aria-roledescription="carousel" aria-label="Foto's van Pomodori Sechi">
+          <div class="story-slider__viewport">
+            <div class="story-slider__track" id="story-slider-track">
+              <figure class="story-slider__slide">
+                <img src="slider/WhatsApp-Image-2024-04-17-at-17.52.08-e1719424844641.jpeg.webp" alt="Pomodori Sechi – sfeerbeeld van het restaurant" width="900" height="563" loading="lazy">
+              </figure>
+              <figure class="story-slider__slide">
+                <img src="slider/WhatsApp-Image-2024-05-06-at-14.01.42-1.jpeg.webp" alt="Pomodori Sechi – Italiaanse gerechten" width="900" height="563" loading="lazy">
+              </figure>
+              <figure class="story-slider__slide">
+                <img src="slider/WhatsApp-Image-2024-05-06-at-14.01.42.jpeg.webp" alt="Pomodori Sechi – gerecht op het bord" width="900" height="563" loading="lazy">
+              </figure>
+              <figure class="story-slider__slide">
+                <img src="slider/WhatsApp-Image-2024-05-06-at-14.01.43-1.jpeg.webp" alt="Pomodori Sechi – keuken en presentatie" width="900" height="563" loading="lazy">
+              </figure>
+              <figure class="story-slider__slide">
+                <img src="slider/WhatsApp-Image-2024-05-06-at-14.01.44-1.jpeg.webp" alt="Pomodori Sechi – dinerervaring" width="900" height="563" loading="lazy">
+              </figure>
+              <figure class="story-slider__slide">
+                <img src="slider/WhatsApp-Image-2024-05-13-at-17.25.23.jpeg.webp" alt="Pomodori Sechi – restaurant en terras" width="900" height="563" loading="lazy">
+              </figure>
+            </div>
+          </div>
+          <button type="button" class="story-slider__btn story-slider__btn--prev" id="story-slider-prev" aria-label="Vorige foto">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button type="button" class="story-slider__btn story-slider__btn--next" id="story-slider-next" aria-label="Volgende foto">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+          <div class="story-slider__dots" id="story-slider-dots" role="tablist" aria-label="Kies een foto"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" aria-labelledby="testimonial-label">
+      <div class="container">
+        <div class="testimonial-slider" id="testimonial-slider" tabindex="0" aria-roledescription="carousel" aria-label="Gastenreviews">
+          <div class="testimonial-slider__viewport">
+            <div class="testimonial-slider__track" id="testimonial-slider-track">
+              <blockquote class="testimonial">
+                <p class="testimonial__quote">Prachtig restaurant waar alles klopt. Een aanwinst in Waddinxveen. Mooi interieur, leuke muziek, vriendelijke bediening, echt zeer lekker eten wat ook nog prachtig op het bord lag. Een echte aanrader!</p>
+                <footer class="testimonial__author">— Ylke de Vries · Inwoner Waddinxveen</footer>
+              </blockquote>
+              <blockquote class="testimonial">
+                <p class="testimonial__quote">We hebben heerlijk gegeten bij Pomodori Sechi. De gastheren waren aardig en de sfeer gezellig. Een fijne plek om te genieten van authentiek Italiaans eten aan het water.</p>
+                <footer class="testimonial__author">— E. Looren de Jong · Gast</footer>
+              </blockquote>
+              <blockquote class="testimonial">
+                <p class="testimonial__quote">Geweldig eten en uitzonderlijke service. Prachtige locatie aan de Gouwe, met de boten en hefbrug als decor. Marco is een echte Italiaan met passie voor zijn eten en gasten. We komen zeker terug!</p>
+                <footer class="testimonial__author">— Ruben B. · Gast</footer>
+              </blockquote>
+            </div>
+          </div>
+          <button type="button" class="testimonial-slider__btn testimonial-slider__btn--prev" id="testimonial-slider-prev" aria-label="Vorige review">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button type="button" class="testimonial-slider__btn testimonial-slider__btn--next" id="testimonial-slider-next" aria-label="Volgende review">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+          <div class="testimonial-slider__dots" id="testimonial-slider-dots" role="tablist" aria-label="Kies een review"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div class="contact-intro">
+          <span class="section__label">Contact</span>
+          <h2 id="contact-title" class="section__title">Reserveer uw tafel</h2>
+          <p>Wilt u genieten van onze Italiaanse gerechten? Vul het formulier in of bel ons direct. Wij kijken ernaar uit u te verwelkomen.</p>
+          <div class="contact-details">
+            <a href="tel:+31182202027">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              0182 - 20 20 27
+            </a>
+            <a href="mailto:info@pomodori-sechi.nl">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+              info@pomodori-sechi.nl
+            </a>
+          </div>
+          <p style="margin-top: 1.5rem;">
+            <a href="https://pomodori-sechi.nl/" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">Bekijk Menukaart</a>
+          </p>
+        </div>
+
+        <form class="form" id="reservation-form" novalidate>
+          <h3 class="form__title">Reserveringsaanvraag</h3>
+          <div class="form-row form-row--2">
+            <div class="form-group">
+              <label for="name">Naam <span aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" required autocomplete="name" aria-required="true">
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" aria-required="true">
+            </div>
+          </div>
+          <div class="form-row form-row--2">
+            <div class="form-group">
+              <label for="date">Datum <span aria-hidden="true">*</span></label>
+              <input type="date" id="date" name="date" required aria-required="true">
+            </div>
+            <div class="form-group">
+              <label for="time">Tijd <span aria-hidden="true">*</span></label>
+              <select id="time" name="time" required aria-required="true">
+                <option value="">Kies een tijd</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option>
+                <option value="21:30">21:30</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="guests">Aantal personen <span aria-hidden="true">*</span></label>
+            <select id="guests" name="guests" required aria-required="true">
+              <option value="">Selecteer</option>
+              <option value="1">1 persoon</option>
+              <option value="2">2 personen</option>
+              <option value="3">3 personen</option>
+              <option value="4">4 personen</option>
+              <option value="5">5 personen</option>
+              <option value="6">6 personen</option>
+              <option value="7">7 personen</option>
+              <option value="8">8 personen</option>
+              <option value="9+">9 of meer</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Bericht</label>
+            <textarea id="message" name="message" placeholder="Allergieën, speciale wensen of vragen…"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--large form__submit">Reservering versturen</button>
+          <p class="form__note">Wij bevestigen uw reservering zo spoedig mogelijk per e-mail.</p>
+          <div class="form-success" id="form-success" role="status" aria-live="polite">
+            <h3>Bedankt!</h3>
+            <p>Uw reserveringsaanvraag is ontvangen. Wij nemen spoedig contact met u op.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="#" class="footer__logo logo-frame" aria-label="Pomodori Sechi – naar boven">
+      <img src="logo.webp" alt="Pomodori Sechi – Ristorante Pizzeria" width="220" height="72">
+    </a>
+    <nav class="footer__nav" aria-label="Footer navigatie">
+      <a href="#over-ons">Over ons</a>
+      <a href="#info">Info</a>
+      <a href="#verhaal">Ons verhaal</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+31182202027">0182 - 20 20 27</a>
+    </nav>
+    <p class="footer__copy">&copy; <span id="year"></span> Ristorante Pizzeria Pomodori Sechi · Nesse 16, Waddinxveen. Alle rechten voorbehouden.</p>
+  </footer>
+
+  <!-- Reservation modal -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal">
+      <button type="button" class="modal__close" aria-label="Sluiten">&times;</button>
+      <h2 id="modal-title" class="form__title">Reserveer een tafel</h2>
+      <form class="form" id="modal-form" style="box-shadow: none; padding: 0;" novalidate>
+        <div class="form-row form-row--2">
+          <div class="form-group">
+            <label for="modal-name">Naam <span aria-hidden="true">*</span></label>
+            <input type="text" id="modal-name" name="name" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="modal-email">E-mail <span aria-hidden="true">*</span></label>
+            <input type="email" id="modal-email" name="email" required autocomplete="email">
+          </div>
+        </div>
+        <div class="form-row form-row--2">
+          <div class="form-group">
+            <label for="modal-date">Datum <span aria-hidden="true">*</span></label>
+            <input type="date" id="modal-date" name="date" required>
+          </div>
+          <div class="form-group">
+            <label for="modal-time">Tijd <span aria-hidden="true">*</span></label>
+            <select id="modal-time" name="time" required>
+              <option value="">Kies een tijd</option>
+              <option value="17:00">17:00</option>
+              <option value="17:30">17:30</option>
+              <option value="18:00">18:00</option>
+              <option value="18:30">18:30</option>
+              <option value="19:00">19:00</option>
+              <option value="19:30">19:30</option>
+              <option value="20:00">20:00</option>
+              <option value="20:30">20:30</option>
+              <option value="21:00">21:00</option>
+              <option value="21:30">21:30</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="modal-guests">Aantal personen <span aria-hidden="true">*</span></label>
+          <select id="modal-guests" name="guests" required>
+            <option value="">Selecteer</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9+">9+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="modal-message">Bericht</label>
+          <textarea id="modal-message" name="message" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary form__submit">Reservering maken</button>
+      </form>
+      <div class="form-success" id="modal-success" role="status">
+        <h3>Bedankt!</h3>
+        <p>Wij nemen spoedig contact met u op om uw reservering te bevestigen.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const header = document.getElementById('header');
+      const menuToggle = document.querySelector('.menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      const modalOverlay = document.getElementById('modal-overlay');
+      const modalClose = document.querySelector('.modal__close');
+      const yearEl = document.getElementById('year');
+
+      yearEl.textContent = new Date().getFullYear();
+
+      // Header scroll state
+      function onScroll() {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // Mobile menu
+      function setMobileNavOpen(open) {
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuToggle.setAttribute('aria-label', open ? 'Menu sluiten' : 'Menu openen');
+        mobileNav.classList.toggle('open', open);
+        mobileNav.hidden = !open;
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+
+      menuToggle.addEventListener('click', function () {
+        const open = menuToggle.getAttribute('aria-expanded') !== 'true';
+        setMobileNavOpen(open);
+      });
+
+      mobileNav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          setMobileNavOpen(false);
+        });
+      });
+
+      // Modal
+      let lastFocus = null;
+
+      function openModal() {
+        lastFocus = document.activeElement;
+        modalOverlay.hidden = false;
+        modalOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        const firstInput = modalOverlay.querySelector('input, select, textarea, button');
+        if (firstInput) firstInput.focus();
+      }
+
+      function closeModal() {
+        modalOverlay.classList.remove('open');
+        modalOverlay.hidden = true;
+        document.body.style.overflow = '';
+        if (lastFocus) lastFocus.focus();
+      }
+
+      document.querySelectorAll('[data-open-modal="reserveren"]').forEach(function (btn) {
+        btn.addEventListener('click', openModal);
+      });
+
+      modalClose.addEventListener('click', closeModal);
+
+      modalOverlay.addEventListener('click', function (e) {
+        if (e.target === modalOverlay) closeModal();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modalOverlay.classList.contains('open')) {
+          closeModal();
+        }
+      });
+
+      // Form handling (demo – no backend)
+      function handleFormSubmit(form, successEl) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+          form.style.display = 'none';
+          successEl.classList.add('visible');
+
+          if (form.id === 'modal-form') {
+            setTimeout(closeModal, 2500);
+          }
+        });
+      }
+
+      handleFormSubmit(
+        document.getElementById('reservation-form'),
+        document.getElementById('form-success')
+      );
+
+      handleFormSubmit(
+        document.getElementById('modal-form'),
+        document.getElementById('modal-success')
+      );
+
+      // Story image slider
+      (function initStorySlider() {
+        const slider = document.getElementById('story-slider');
+        const track = document.getElementById('story-slider-track');
+        const prevBtn = document.getElementById('story-slider-prev');
+        const nextBtn = document.getElementById('story-slider-next');
+        const dotsContainer = document.getElementById('story-slider-dots');
+
+        if (!slider || !track || !prevBtn || !nextBtn || !dotsContainer) return;
+
+        const slides = track.querySelectorAll('.story-slider__slide');
+        const total = slides.length;
+        let current = 0;
+        let autoplayTimer = null;
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function getVisibleCount() {
+          const value = parseFloat(getComputedStyle(slider).getPropertyValue('--slides-visible'));
+          return Math.max(1, Math.min(total, value || 1));
+        }
+
+        function getMaxIndex() {
+          return Math.max(0, total - getVisibleCount());
+        }
+
+        function getGap() {
+          return parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+        }
+
+        function updateDots() {
+          const pages = getMaxIndex() + 1;
+          dotsContainer.innerHTML = '';
+
+          for (let i = 0; i < pages; i++) {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = 'story-slider__dot' + (i === current ? ' is-active' : '');
+            dot.setAttribute('role', 'tab');
+            dot.setAttribute('aria-label', 'Groep ' + (i + 1));
+            dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
+            dot.addEventListener('click', function () {
+              goTo(i);
+              resetAutoplay();
+            });
+            dotsContainer.appendChild(dot);
+          }
+        }
+
+        function updatePosition() {
+          const slideWidth = slides[0].offsetWidth;
+          const gap = getGap();
+          track.style.transform = 'translateX(-' + (current * (slideWidth + gap)) + 'px)';
+        }
+
+        function updateControls() {
+          const maxIndex = getMaxIndex();
+          current = Math.max(0, Math.min(current, maxIndex));
+          prevBtn.disabled = current === 0;
+          nextBtn.disabled = current === maxIndex;
+          prevBtn.style.opacity = current === 0 ? '0.4' : '';
+          nextBtn.style.opacity = current === maxIndex ? '0.4' : '';
+          updateDots();
+          updatePosition();
+        }
+
+        function goTo(index) {
+          current = Math.max(0, Math.min(index, getMaxIndex()));
+          updateControls();
+        }
+
+        function next() {
+          if (current >= getMaxIndex()) {
+            goTo(0);
+          } else {
+            goTo(current + 1);
+          }
+        }
+
+        function prev() {
+          if (current <= 0) {
+            goTo(getMaxIndex());
+          } else {
+            goTo(current - 1);
+          }
+        }
+
+        function startAutoplay() {
+          if (reducedMotion) return;
+          stopAutoplay();
+          autoplayTimer = setInterval(next, 5000);
+        }
+
+        function stopAutoplay() {
+          if (autoplayTimer) {
+            clearInterval(autoplayTimer);
+            autoplayTimer = null;
+          }
+        }
+
+        function resetAutoplay() {
+          stopAutoplay();
+          startAutoplay();
+        }
+
+        prevBtn.addEventListener('click', function () {
+          prev();
+          resetAutoplay();
+        });
+
+        nextBtn.addEventListener('click', function () {
+          next();
+          resetAutoplay();
+        });
+
+        slider.addEventListener('mouseenter', stopAutoplay);
+        slider.addEventListener('mouseleave', startAutoplay);
+        slider.addEventListener('focusin', stopAutoplay);
+        slider.addEventListener('focusout', startAutoplay);
+
+        slider.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowLeft') {
+            prev();
+            resetAutoplay();
+          } else if (e.key === 'ArrowRight') {
+            next();
+            resetAutoplay();
+          }
+        });
+
+        let touchStartX = 0;
+        slider.addEventListener('touchstart', function (e) {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        slider.addEventListener('touchend', function (e) {
+          const diff = touchStartX - e.changedTouches[0].screenX;
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) next();
+            else prev();
+            resetAutoplay();
+          }
+        }, { passive: true });
+
+        window.addEventListener('resize', updateControls);
+        updateControls();
+        startAutoplay();
+      })();
+
+      // Testimonial slider
+      (function initTestimonialSlider() {
+        const slider = document.getElementById('testimonial-slider');
+        const track = document.getElementById('testimonial-slider-track');
+        const prevBtn = document.getElementById('testimonial-slider-prev');
+        const nextBtn = document.getElementById('testimonial-slider-next');
+        const dotsContainer = document.getElementById('testimonial-slider-dots');
+
+        if (!slider || !track || !prevBtn || !nextBtn || !dotsContainer) return;
+
+        const slides = track.querySelectorAll('.testimonial');
+        const total = slides.length;
+        let current = 0;
+        let autoplayTimer = null;
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        slides.forEach(function (_, index) {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'testimonial-slider__dot' + (index === 0 ? ' is-active' : '');
+          dot.setAttribute('role', 'tab');
+          dot.setAttribute('aria-label', 'Review ' + (index + 1));
+          dot.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+          dot.addEventListener('click', function () {
+            goTo(index);
+            resetAutoplay();
+          });
+          dotsContainer.appendChild(dot);
+        });
+
+        const dots = dotsContainer.querySelectorAll('.testimonial-slider__dot');
+
+        function updatePosition() {
+          track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        }
+
+        function goTo(index) {
+          current = (index + total) % total;
+          dots.forEach(function (dot, i) {
+            dot.classList.toggle('is-active', i === current);
+            dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
+          });
+          updatePosition();
+        }
+
+        function next() {
+          goTo(current + 1);
+        }
+
+        function prev() {
+          goTo(current - 1);
+        }
+
+        function startAutoplay() {
+          if (reducedMotion) return;
+          stopAutoplay();
+          autoplayTimer = setInterval(next, 6000);
+        }
+
+        function stopAutoplay() {
+          if (autoplayTimer) {
+            clearInterval(autoplayTimer);
+            autoplayTimer = null;
+          }
+        }
+
+        function resetAutoplay() {
+          stopAutoplay();
+          startAutoplay();
+        }
+
+        prevBtn.addEventListener('click', function () {
+          prev();
+          resetAutoplay();
+        });
+
+        nextBtn.addEventListener('click', function () {
+          next();
+          resetAutoplay();
+        });
+
+        slider.addEventListener('mouseenter', stopAutoplay);
+        slider.addEventListener('mouseleave', startAutoplay);
+        slider.addEventListener('focusin', stopAutoplay);
+        slider.addEventListener('focusout', startAutoplay);
+
+        slider.addEventListener('keydown', function (e) {
+          if (e.key === 'ArrowLeft') {
+            prev();
+            resetAutoplay();
+          } else if (e.key === 'ArrowRight') {
+            next();
+            resetAutoplay();
+          }
+        });
+
+        let touchStartX = 0;
+        slider.addEventListener('touchstart', function (e) {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        slider.addEventListener('touchend', function (e) {
+          const diff = touchStartX - e.changedTouches[0].screenX;
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) next();
+            else prev();
+            resetAutoplay();
+          }
+        }, { passive: true });
+
+        goTo(0);
+        startAutoplay();
+      })();
+
+      // Min date for reservations (today)
+      const today = new Date().toISOString().split('T')[0];
+      document.querySelectorAll('input[type="date"]').forEach(function (input) {
+        input.setAttribute('min', today);
+      });
+
+      // Fade-in on scroll (respect reduced motion)
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+        );
+
+        document.querySelectorAll('.section__title, .about__text, .info-card, .story p, .testimonial-slider').forEach(function (el) {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(24px)';
+          el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          observer.observe(el);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
