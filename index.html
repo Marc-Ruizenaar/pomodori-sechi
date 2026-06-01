@@ -7,28 +7,28 @@
   <title>Pomodori Sechi | Italiaans Restaurant Waddinxveen</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --cream: #faf6f0;
-      --cream-dark: #f0e8dc;
-      --terracotta: #c45c3e;
-      --terracotta-light: #d97a5f;
-      --deep-red: #7a2e2a;
-      --deep-red-dark: #5c1f1c;
-      --olive: #5c6b4a;
-      --olive-light: #7a8f62;
-      --charcoal: #2c2420;
-      --charcoal-soft: #4a4038;
-      --gold: #c9a962;
+      --cream: #f7f0e4;
+      --cream-dark: #e6dac8;
+      --terracotta: #c85835;
+      --terracotta-light: #e07852;
+      --deep-red: #8e2238;
+      --deep-red-dark: #6b1328;
+      --olive: #3f6b4a;
+      --olive-light: #5a8a68;
+      --charcoal: #1e1512;
+      --charcoal-soft: #3a2e28;
+      --gold: #b8942e;
       --white: #ffffff;
-      --shadow: 0 4px 24px rgba(44, 36, 32, 0.12);
-      --shadow-lg: 0 12px 48px rgba(44, 36, 32, 0.18);
+      --shadow: 0 4px 24px rgba(30, 21, 18, 0.12);
+      --shadow-lg: 0 12px 48px rgba(30, 21, 18, 0.18);
       --radius: 12px;
       --radius-lg: 20px;
       --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      --font-display: "Playfair Display", Georgia, serif;
-      --font-body: "Inter", system-ui, -apple-system, sans-serif;
+      --font-display: "Arimo", system-ui, -apple-system, sans-serif;
+      --font-body: "Arimo", system-ui, -apple-system, sans-serif;
       --header-h: 72px;
     }
 
@@ -112,7 +112,7 @@
     }
 
     .header.scrolled {
-      background: rgba(250, 246, 240, 0.95);
+      background: rgba(247, 240, 228, 0.95);
       backdrop-filter: blur(12px);
       box-shadow: var(--shadow);
     }
@@ -220,13 +220,12 @@
     .btn--primary {
       background: var(--deep-red);
       color: var(--white);
-      box-shadow: 0 4px 16px rgba(122, 46, 42, 0.35);
     }
 
     .btn--primary:hover {
       background: var(--deep-red-dark);
       color: var(--white);
-      box-shadow: 0 6px 24px rgba(122, 46, 42, 0.45);
+      box-shadow: 0 6px 24px rgba(142, 34, 56, 0.45);
     }
 
     .btn--secondary {
@@ -368,9 +367,9 @@
       inset: 0;
       background: linear-gradient(
         135deg,
-        rgba(44, 36, 32, 0.75) 0%,
-        rgba(122, 46, 42, 0.55) 50%,
-        rgba(92, 107, 74, 0.4) 100%
+        rgba(30, 21, 18, 0.75) 0%,
+        rgba(142, 34, 56, 0.55) 50%,
+        rgba(63, 107, 74, 0.4) 100%
       );
       z-index: 1;
     }
@@ -551,8 +550,6 @@
       padding: 1.75rem;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow);
-      border-left: 4px solid var(--terracotta);
-      transition: transform var(--transition), box-shadow var(--transition);
     }
 
     .info-card:hover {
@@ -798,9 +795,9 @@
       justify-content: center;
       width: 44px;
       height: 44px;
-      border: 1px solid rgba(201, 169, 98, 0.35);
+      border: 1px solid rgba(184, 148, 46, 0.35);
       border-radius: 50%;
-      background: rgba(44, 36, 32, 0.85);
+      background: rgba(30, 21, 18, 0.85);
       color: var(--gold);
       cursor: pointer;
       transition: background var(--transition), color var(--transition), transform var(--transition);
@@ -839,13 +836,13 @@
       padding: 0;
       border: none;
       border-radius: 50%;
-      background: rgba(201, 169, 98, 0.35);
+      background: rgba(184, 148, 46, 0.35);
       cursor: pointer;
       transition: background var(--transition), transform var(--transition);
     }
 
     .testimonial-slider__dot:hover {
-      background: rgba(201, 169, 98, 0.65);
+      background: rgba(184, 148, 46, 0.65);
     }
 
     .testimonial-slider__dot.is-active {
@@ -951,7 +948,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(44, 36, 32, 0.6);
+      background: rgba(30, 21, 18, 0.6);
       backdrop-filter: blur(4px);
       z-index: 2000;
       display: flex;
